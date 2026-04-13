@@ -1,0 +1,41 @@
+body {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+code {
+    background-color: #eee;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.tldr {
+    font-style: italic;
+    background-color: #e8f4f4;
+    padding: 15px;
+    border-left: 4px solid #3399dd;
+    margin-top: 30px;
+}
+
+.back-link {
+    font-weight: bold;
+}

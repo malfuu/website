@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Station 2197 - Announcement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+    <h1>Space Station 2197</h1>
+
+    <h2>Introduction</h2>
+    <p>Hi, I wanted to share Space Station 2197. A Space Station 13 spin-off now in 3 dimensions.<br>
+    I have been working on it the past few months on the side, and I think it's in a good position to show off and gauge people's reactions.</p>
+
+    <p>But personal introductions first - Hi, you can call me malfu. I have been playing Space Station 13 since 2011, where I stumbled upon it among the much more popular games on BYOND at that time. It has been my favorite game for a long time. Lately I have not stopped daydreaming about a three dimensional SS13 fork. Personally, my only hope is that this project results in a mature game that I can just play. I only wonder how it will turn out.</p>
+
+    <h2>Project</h2>
+    <p>If you <em>somehow</em> don't know Space Station 13, (some people would say) it is an atmospheric simulation roleplaying sandbox game in space.<br>
+    All playable versions of it are 2D only, but I hope to take a step beyond that and step into three dimensions.<br>
+    It will run on the Bevy game engine and utilize the open sourced assets of RE:SS3D (the original 3D attempt!).</p>
+
+    <p>And not to forget the most important thing: the project will be free and open-source. Forever. <br>
+    I do not think Space Station 13 is something to commercialize, and it does not make sense for anybody to think otherwise. This game was made by the community for the community. And it will remain as such.</p>
+
+    <h3>Difficulties</h3>
+    <p>This is a huge undertaking and technical decisions matter. <br>
+    Rest assured, I am not going to boast about whatever <em>super rad technology</em> is used. That is not interesting.<br>
+    Instead I will point out weakpoints, hopefully to be transparent in all challenges, decisions and solutions.</p>
+
+    <h4>Content &amp; Scripting</h4>
+    <p>Forks are the lifeblood of the game. Naturally, this requires a good runtime scripting language...<br>
+    That is also secure &amp; sandboxed...<br>
+    And that is also fast...<br>
+    Aaaand that the syntax is not a complete eyesore.</p>
+
+    <p>I will be honest - I have no idea what SS2197 should use. There is not a lack of options, but a decision must be made.<br>
+    Luau or .NET seem interesting, hell, a WASM solution is possible as well.<br>
+    But this choice can only be made when benchmarks and a thorough analysis are made.</p>
+
+    <p>So as of right now, as a stop gap, core game systems are written in rust while content is defined using Lua Scripting to set prototypes. Scripting a la Factorio.</p>
+
+    <p>Additionally, we do not use Bevy's BSN yet. When version 0.20 releases, SS2197 will completely rely on BSN for entity prototyping and definitions.</p>
+
+    <h4>Editor</h4>
+    <p>I think an editor is essential. This includes not only mapping stations but also a visual tool for modifying entity prototypes.<br>
+    Design questions arise of whether it should be fully offline or only online, among other things.<br>
+    But again, I am unsure how this will turn out, and for now a simple (yet finicky) offline map editor is included.</p>
+
+    <h4>Bevy &amp; Eco-system</h4>
+    <p>Bevy... Oh Bevy... my beloved...<br>
+    Bevy is the game engine of choice and I think the modular nature of bevy has proven very useful for the project.<br>
+    But it could be argued that the most important part of it is the community surrounding it and its ecosystem of crates.<br>
+    Among them include <code>avian3d</code> for physics, and <code>bevy_replicon</code> for networking, which are used in SS2197.<br>
+    Bevy and their crates have their problems, including instability, bugs, and reliance on open source contributors. But I feel that inserting ourselves in this welcoming and hard-working community, and participating in their ecosystem by using open-source crates, and potentially even giving back, is a net benefit to all. <br>
+    I do not think there is another choice - especially <a href="https://en.wikipedia.org/wiki/Unity_(game_engine)#Runtime_fee_controversy" target="_blank" rel="noopener noreferrer">anti-developer game engines</a>.</p>
+
+    <h4>And much more</h4>
+    <p>These are not the only problems, other stuff include: UI, atmospheric simulation (which to be fair is currently implemented with gas flows only!), and groundwork foundation to work on.</p>
+
+    <h3>Other things</h3>
+
+    <h4>Roadmap</h4>
+    <p>While many forks start off barebones and try to tackle many problems at once, I propose a different development for this project.</p>
+
+    <p>A Department-focused development roadmap.<br>
+    This means that each department in-game is developed in series, alongside accompanying game mechanics relevant to that department.</p>
+
+    <p>It would go something like this:</p>
+    <ul>
+        <li><strong>Engineering Department:</strong> Alpha version of the game, includes Atmospheric simulation, tools &amp; interactions and a basic round-based gameplay loop.</li>
+        <li><strong>Security Department:</strong> Focus on combat &amp; weapons mechanics.</li>
+        <li><strong>Medbay Department:</strong> Focus on Medicine &amp; Chemistry mechanics.</li>
+        <li><strong>Service Department:</strong> Focus on Roleplaying flavour and mechanics.</li>
+    </ul>
+
+    <p>And so on...</p>
+
+    <p>My hope is to give a sense of incremental content that is easily noticeable by players and keeps people engaged with the project as it evolves. While easing developers by providing more concise objectives on what to do next.</p>
+
+    <p>This does have its drawbacks, e.g. during early development, preferential focus will be given to roadmap milestones, rather than contributions that might fall out of the next milestone's scope. Or that mechanics might need to be revisited later as they might not yet be possible to be fully implemented without another department's content.</p>
+
+    <h4>License</h4>
+    <p>Right now, I am licensing the core project under the MPL 2.0 License.<br>
+    Reasoning being: MIT is good, but does not incentivize giving back to the community, and AGPL, well...<br>
+    I identify a sort of "AGPL fatigue" among the SS13 community. While its premise is well-intentioned, it is extremely restrictive in what you can do. Its virality completely disallows private forks, secret server-side recipes or other fun stuff.<br>
+    However, content-side scripting will be occluded from this license. If this project ever gets official servers, scripting will always be available and permissive if you wish to fork an official upstream.</p>
+
+    <h4>Playtests</h4>
+    <p>Oh, and simply dumping code on GitHub is not fun. We should play it!<br>
+    I wanted to try out the game publicly as soon as possible. <br>
+    Therefore routine playtests of the game are planned.<br>
+    Initially they will not be fun. But hopefully it will be entertaining to see the evolution of the project while giving us valuable feedback of what you like and what you absolutely hate.<br>
+    If you are interested, join the <a href="https://discord.gg/JQXUrM2CJF" target="_blank" rel="noopener noreferrer">Discord server</a>, more details to follow.</p>
+
+    <h4>Nothing is final</h4>
+    <p>Finally: nothing is final. The license, content, or even the name "Space Station 2197", are not final.<br>
+    If you are interested, join the discussion! Just like how, in-game, it is more fun to play with other players, it is also fun to develop with other maintainers. Even though I have started this by myself, I have no delusions to think that I alone have all, or even any, of the answers. I genuinely hope to hear your feedback and possibly contribute alongside you.</p>
+
+    <h2>Conclusion</h2>
+    <p>Anyways, that's all for now. <br>
+    What does this mean for you, <strong>the player</strong>?<br>
+    Hopefully a distant yet interesting project that looms ever closer to completion.<br>
+    If you wish to have a more vested interest, make sure to join whatever communication channels we use, chat about and join the playtests.</p>
+
+    <p>And also, if you, whoever you might be, have any questions, critiques or even feel like ranting: <br>
+    My DMs are always open. I will try my best to get back to you.</p>
+
+    <p class="tldr"><strong>TL;DR:</strong> FOSS SS13 in 3D made in rust with technical debt already and playtests coming soon.</p>
+
+</body>
+</html>
